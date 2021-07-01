@@ -198,9 +198,8 @@ class CachedNetworkImage extends StatelessWidget {
   /// provides support for a placeholder, showing an error and fading into the
   /// loaded image. Next to that it supports most features of a default Image
   /// widget.
-  CachedNetworkImage({
+  CachedNetworkImage(this.imageUrl, {
     Key? key,
-    required this.imageUrl,
     this.httpHeaders,
     this.imageBuilder,
     this.placeholder,
@@ -228,6 +227,7 @@ class CachedNetworkImage extends StatelessWidget {
     this.maxWidthDiskCache,
     this.maxHeightDiskCache,
     ImageRenderMethodForWeb? imageRenderMethodForWeb,
+    double scale = 1.0,
   })  : _image = CachedNetworkImageProvider(
           imageUrl,
           headers: httpHeaders,
@@ -236,6 +236,7 @@ class CachedNetworkImage extends StatelessWidget {
           imageRenderMethodForWeb: imageRenderMethodForWeb,
           maxWidth: maxWidthDiskCache,
           maxHeight: maxHeightDiskCache,
+          scale: scale,
         ),
         super(key: key);
 
